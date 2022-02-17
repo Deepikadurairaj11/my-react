@@ -2,13 +2,22 @@ import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-function MovieDetails({ movieList }) {
+// function MovieDetails({ movieList }) {
+  function MovieDetails() {
   const { id } = useParams();
-  console.log(movieList, id);
+  // console.log(movieList, id);
 
-  const movies = movieList[id];
-  console.log(movies);
+  // const movies = movieList[id];
+  // console.log(movies);
+  const [movies, setMovies] = useState ({});
+  const getMovie = () => {
+    fetch("https://6206596292dd6600171c09e1.mockapi.io/movies/" + id)
+    .then((data)=> data.json())
+    .then((mv)=> setMovies(mv));
+  };
+  useEffect(getMovie, []);
   const history = useHistory();
 
   return (

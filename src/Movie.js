@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 // import Button from '@mui/material/Button';
@@ -9,7 +10,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import InfoIcon from "@mui/icons-material/Info";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 
 export const Movie = ({
   name,
@@ -26,6 +27,9 @@ export const Movie = ({
   const styles = { color: rating > "8.5/10" ? "teal" : "crimson" };
   const history = useHistory();
   console.log(history);
+
+  // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
   return (
     <Card className="container">
       {/* <div className="container"> */}
@@ -74,6 +78,7 @@ export const Movie = ({
         {editButton}
         {/* </div> */}
       </CardActions>
+
       {/* </div> */}
     </Card>
   );
